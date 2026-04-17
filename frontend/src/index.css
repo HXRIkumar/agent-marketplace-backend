@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #010409;
+  --border-default: #30363d;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --accent-blue: #1f6feb;
+  --accent-green: #238636;
+  --accent-green-hover: #2ea043;
+  --accent-red: #da3633;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0d1117] text-[#c9d1d9] font-sans;
+    line-height: 1.5;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-[#161b22] border border-[#30363d] rounded-md transition-all;
+  }
+  
+  .card:hover {
+    @apply border-[#8b949e];
+  }
+
+  .btn {
+    @apply px-4 py-1.5 rounded-md font-medium text-sm transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed disabled:shadow-none;
+  }
+
+  .btn-primary {
+    @apply bg-[#238636] text-white hover:brightness-110 border border-[rgba(240,246,252,0.1)];
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-[#c9d1d9] border border-[#30363d] hover:bg-[#161b22] hover:border-[#8b949e];
+  }
+
+  .btn:disabled:hover {
+    @apply brightness-100 scale-100;
+  }
+
+
+  .input {
+    @apply bg-[#0d1117] border border-[#30363d] rounded-md px-3 py-1.5 text-sm focus:outline-none focus:border-[#1f6feb] transition-all;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
