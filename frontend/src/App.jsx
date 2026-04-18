@@ -7,6 +7,8 @@ import ApiKeys from "./components/ApiKeys";
 import Console from "./components/Console";
 import Login from "./components/Login";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 export default function App() {
   const [username, setUsername] = useState(() => localStorage.getItem("username") || "");
   const [agents, setAgents] = useState([]);
@@ -21,7 +23,7 @@ export default function App() {
 
   const fetchAgents = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:3000/agents");
+      const res = await axios.get(`${API_BASE_URL}/agents`);
       setAgents(res.data);
     } catch (err) {
       console.error("Failed to fetch agents", err);
@@ -36,7 +38,7 @@ export default function App() {
 
   const handleLogin = async (name) => {
     try {
-      await axios.post("http://localhost:3000/login", { username: name });
+      await axios.post(`${API_BASE_URL}/login`, { username: name });
       setUsername(name);
       localStorage.setItem("username", name);
     } catch (err) {
@@ -59,7 +61,7 @@ export default function App() {
     if (!agent) return;
 
     try {
-      const res = await axios.post("http://localhost:3000/buy", { 
+      const res = await axios.post(`${API_BASE_URL}/buy`, { 
         username, 
         agentId 
       });

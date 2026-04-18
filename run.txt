@@ -1,0 +1,6 @@
+ //frontend
+ export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin && npm run dev
+
+
+//backend
+ export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin && npm start

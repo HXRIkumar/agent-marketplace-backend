@@ -4,10 +4,7 @@ const Navbar = ({ username, onLogout }) => {
   return (
     <nav className="h-16 fixed top-0 w-full z-50 bg-[#161b22] border-b border-[#30363d] flex items-center justify-between px-6">
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 bg-[#1f6feb] rounded-md flex items-center justify-center">
-          <span className="material-symbols-outlined text-white text-xl">rocket_launch</span>
-        </div>
-        <span className="text-xl font-bold tracking-tight text-[#f0f6fc]">Observatory</span>
+        <span className="text-xl font-bold tracking-tight text-[#f0f6fc]">Agent Marketplace</span>
       </div>
       
       <div className="flex items-center gap-4">

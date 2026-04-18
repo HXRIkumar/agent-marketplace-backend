@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 const Console = ({ agents, apiKeys }) => {
   const [selectedAgentId, setSelectedAgentId] = useState('');
   const [apiKey, setApiKey] = useState('');
@@ -19,10 +21,9 @@ const Console = ({ agents, apiKeys }) => {
 
       // Set sample payloads
       const samples = {
-        'Lumina-7B': { text: "Explain React hooks." },
-        'Visionary-X': { a: 10, b: 5, operation: "multiply" },
-        'DataSynth': { amount: 100 },
-        'Quantum-Core': { amount: 50 }
+        'Resume Intelligence': { text: "Experience: 5 years of React development. Skills: JavaScript, Node, Python. Education: BS in CS." },
+        'Product Intelligence': { query: "iPhone 15 Pro" },
+        'Text Analysis Agent': { text: "The new multi-agent architecture is incredibly efficient. It allows for high scalability and modular development." }
       };
       setPayload(JSON.stringify(samples[agent.name] || {}, null, 2));
     }
@@ -37,7 +38,7 @@ const Console = ({ agents, apiKeys }) => {
     setResponse(null);
 
     try {
-      const res = await axios.post(`http://localhost:3000${agent.endpoint}`, 
+      const res = await axios.post(`${API_BASE_URL}${agent.endpoint}`, 
         JSON.parse(payload),
         { headers: { Authorization: apiKey } }
       );
@@ -128,10 +129,10 @@ const Console = ({ agents, apiKeys }) => {
             </pre>
           </div>
           <div className="bg-[#161b22] px-6 py-4 border-t border-[#30363d] text-[11px] text-[#8b949e] flex justify-between items-center">
-            <span>Server: localhost:3000</span>
+            <span>API Status: Operational</span>
             <span className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-sm">schedule</span>
-              Ready
+              <span className="material-symbols-outlined text-sm">check_circle</span>
+              Systems Active
             </span>
           </div>
         </div>

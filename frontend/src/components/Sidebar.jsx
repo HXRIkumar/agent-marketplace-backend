@@ -26,13 +26,6 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
         ))}
       </nav>
       
-      <div className="pt-6 border-t border-[#30363d]">
-        <div className="px-4 py-2 text-[10px] uppercase tracking-wider font-bold text-[#8b949e] mb-2">Systems</div>
-        <div className="flex items-center gap-2 px-4 py-2 text-[#8b949e]">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          <span className="text-xs font-mono">Gateway: Stable</span>
-        </div>
-      </div>
     </aside>
   );
 };
